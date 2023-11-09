@@ -34,7 +34,7 @@ export default function Home() {
             />
           </div>
           <div className="content-header-banner">
-            {/* Nama dan Kawan2*/}
+            {/* Nama dan Lain2*/}
             <h1>{nama}</h1>
             <div className="bio-nim-header-banner">
             {/* NIM dan BIO*/}
