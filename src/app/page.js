@@ -1,37 +1,63 @@
+'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
+import './globals.css'
+
 export default function Home() {
+
+  const [bravo, setBravo] = useState(0)
+  const [nama, setNama] = useState('Muthia A. Salam')
+
+  function handlerTambahBravo(){
+    setBravo(bravo + 1)
+  }
+
+  function handlerGantiNama(){
+    setNama('Muthia')
+  }
+  
+  
   return (
-   <div>
+    <div className='body'>
       <div className="banner-container">
-        {/*ini kartunya*/}
-        <div className = "header-banner-wrapper">
-          {/*Foto Profil dan Nama*/}
-          <div className = "profile-header-banner">
+        {/* Kartunya */}
+        <div className="header-banner-wrapper">
+          {/* Foto Profil dan Nama */}
+          <div className="profile-header-banner">
+            {/* Foto Profil*/}
             <Image
               src="/assets/profile.png"
-              width={500}
-              height={500}
               alt="Picture of the author"
+              fill
+              objectFit='contain'
             />
           </div>
-          <div className = "content-header-banner">
-            <div className = "bio-name-header-banner">
-            <h1>Muthia Salam</h1>
+          <div className="content-header-banner">
+            {/* Nama dan Kawan2*/}
+            <h1>{nama}</h1>
+            <div className="bio-nim-header-banner">
+            {/* NIM dan BIO*/}
             <p>D121211003</p>
-            <p>Pemrograman Web A</p>
-
+            <p>Count : {bravo}</p>
             </div>
           </div>
         </div>
-        <div className = "cta-banner-wrapper">
-          <button>
-            Halo!
-          </button>
+        <div className="cta-banner-wrapper">
+          {/* Tombol CTA */}
+            <div className='cta-button' onClick={handlerTambahBravo}>
+              <p>Halo!</p>
+            </div>
+            <div className='cta-button' 
+            style={{
+              marginTop: '12px'
+            }}
+            
+            onClick={handlerGantiNama}>
+              <p>Ganti Nama</p>
+            </div>
         </div>
       </div>
-   </div>
-
+    </div>
   )
-
 }
